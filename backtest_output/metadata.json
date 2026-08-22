@@ -1,0 +1,25 @@
+{
+  "requested_start": "2016-08-22 00:00:00+00:00",
+  "requested_end": "2026-08-22 00:00:00+00:00",
+  "symbols": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "BNBUSDT",
+    "XRPUSDT",
+    "ADAUSDT",
+    "DOGEUSDT",
+    "LINKUSDT",
+    "LTCUSDT",
+    "SOLUSDT",
+    "AVAXUSDT"
+  ],
+  "initial_cash": 10000000.0,
+  "fee_each_side": 0.0005,
+  "notes": [
+    "Binance spot 1h klines; 4h derived by UTC-aligned resampling.",
+    "Long only. Signals are evaluated on close and executed next bar open.",
+    "2x is synthetic full-account exposure; borrowing/funding/slippage excluded.",
+    "If 2x intrabar equity reaches <=0 at the candle low, account is treated as liquidated.",
+    "No per-asset parameter optimization."
+  ]
+}
