@@ -1,5 +1,6 @@
 name: Crypto Tuning Grid
 
+# Triggered after tuner script was added to the isolated branch.
 on:
   push:
     branches:
