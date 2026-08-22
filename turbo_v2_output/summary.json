@@ -1,0 +1,36 @@
+{
+  "method": "Turbo v2 cross-asset momentum rotation + winner concentration + profitable-only pyramiding + DD brake; 10 crypto; rolling 2y every 180d; 0.05% fee",
+  "candidate_count": 16,
+  "best": {
+    "turbo": 1.5,
+    "pyr1": 1.25,
+    "pyr2": 2.0,
+    "dd": 0.1,
+    "brake": 0.5,
+    "windows": 14.0,
+    "median_return_pct": 214.44522549911616,
+    "best_return_pct": 1318.2034623216841,
+    "worst_return_pct": -33.1268753777603,
+    "median_mdd_pct": -59.75370576046918,
+    "worst_mdd_pct": -77.41091316055582,
+    "profitable_rate_pct": 78.57142857142857,
+    "windows_10x_plus": 3.0,
+    "windows_100x_plus": 0.0,
+    "windows_500x_plus": 0.0,
+    "liquidations": 0.0,
+    "score": 166.25758628672708
+  },
+  "highest_window": {
+    "turbo": 2.0,
+    "pyr1": 1.25,
+    "pyr2": 2.0,
+    "dd": 0.1,
+    "brake": 0.5,
+    "start": "2019-06-25 00:00:00+00:00",
+    "end": "2021-06-24 00:00:00+00:00",
+    "return_pct": 1377.4301488981916,
+    "multiple": 14.774301488981918,
+    "mdd_pct": -77.4109131605558,
+    "liquidated": 0
+  }
+}
