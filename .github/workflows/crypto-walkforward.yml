@@ -1,4 +1,4 @@
-name: Crypto Walkforward Tuning
+name: Crypto MDD Walkforward Tuning
 
 on:
   push:
@@ -31,17 +31,17 @@ jobs:
       - name: Install dependencies
         run: python -m pip install --disable-pip-version-check pandas numpy requests tabulate
 
-      - name: Run walk-forward fine tuning
-        run: python backtests/crypto_walkforward_tune.py
+      - name: Run MDD-focused walk-forward tuning
+        run: python backtests/crypto_mdd_tune_10y.py
 
       - name: Commit results to tuning branch
         if: always()
         run: |
-          if [ -d walkforward_output ] && [ "$(find walkforward_output -type f | wc -l)" -gt 0 ]; then
+          if [ -d mdd_tuning_output ] && [ "$(find mdd_tuning_output -type f | wc -l)" -gt 0 ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add walkforward_output
-            git commit -m "Store walk-forward tuning results [skip ci]" || true
+            git add mdd_tuning_output
+            git commit -m "Store MDD tuning results [skip ci]" || true
             git push origin HEAD:chatgpt-crypto-backtest-20260822
           fi
 
@@ -49,7 +49,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: crypto-walkforward-results
-          path: walkforward_output/
+          name: crypto-mdd-tuning-results
+          path: mdd_tuning_output/
           if-no-files-found: warn
           retention-days: 7
