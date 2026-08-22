@@ -1,0 +1,52 @@
+{
+  "method": "Focused 3-regime structural test: 1h Donchian state + prior completed 4h EMA/slope filter; bear=0, bull=0.35/0.50x, strong bull=0.75/1.00x; 70/30 OOS; 0.05% fee each side.",
+  "candidate_count": 64,
+  "oos_leaders_tested": 16,
+  "best_cagr_with_mdd_le_35": {
+    "assets": 10,
+    "profitable_assets": 8,
+    "median_return_pct": 31.477814776626715,
+    "median_cagr_pct": 11.270765119424953,
+    "median_mdd_pct": -23.70792858572639,
+    "median_profit_factor": 1.726785872982008,
+    "median_sharpe": 0.6528076659431705,
+    "total_trades": 367,
+    "entry_n": 160,
+    "exit_n": 40,
+    "ema_n": 300,
+    "strong_threshold": 1.1,
+    "base_exposure": 0.35,
+    "strong_exposure": 0.75,
+    "part": "oos",
+    "train_rank": 2,
+    "train_cagr_pct": 28.355064964875353,
+    "train_mdd_pct": -43.380944642656104,
+    "mdd35_ok": true
+  },
+  "best_mdd": {
+    "assets": 10,
+    "profitable_assets": 8,
+    "median_return_pct": 32.05638492520243,
+    "median_cagr_pct": 10.914479637263419,
+    "median_mdd_pct": -22.314001189454018,
+    "median_profit_factor": 1.8042346876317232,
+    "median_sharpe": 0.7319972520702891,
+    "total_trades": 384,
+    "entry_n": 160,
+    "exit_n": 30,
+    "ema_n": 300,
+    "strong_threshold": 1.1,
+    "base_exposure": 0.5,
+    "strong_exposure": 0.75,
+    "part": "oos",
+    "train_rank": 4,
+    "train_cagr_pct": 27.02332859664174,
+    "train_mdd_pct": -43.49000317302348,
+    "mdd35_ok": true
+  },
+  "previous_balanced_reference": {
+    "return_pct": 22.575141791847088,
+    "mdd_pct": -26.836549972007173,
+    "pf": 1.3732746264067988
+  }
+}
