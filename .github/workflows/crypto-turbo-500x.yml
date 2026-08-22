@@ -31,17 +31,17 @@ jobs:
       - name: Install dependencies
         run: python -m pip install --disable-pip-version-check pandas numpy requests tabulate
 
-      - name: Run 2-year turbo stress test
-        run: python backtests/crypto_turbo_500x.py
+      - name: Run optimized 2-year turbo stress test
+        run: python backtests/crypto_turbo_500x_fast.py
 
       - name: Commit results to tuning branch
         if: always()
         run: |
-          if [ -d turbo_500x_output ] && [ "$(find turbo_500x_output -type f | wc -l)" -gt 0 ]; then
+          if [ -d turbo_500x_fast_output ] && [ "$(find turbo_500x_fast_output -type f | wc -l)" -gt 0 ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add turbo_500x_output
-            git commit -m "Store turbo 500x stress-test results [skip ci]" || true
+            git add turbo_500x_fast_output
+            git commit -m "Store optimized turbo 500x results [skip ci]" || true
             git push origin HEAD:chatgpt-crypto-backtest-20260822
           fi
 
@@ -49,7 +49,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: crypto-turbo-500x-results
-          path: turbo_500x_output/
+          name: crypto-turbo-500x-fast-results
+          path: turbo_500x_fast_output/
           if-no-files-found: warn
           retention-days: 7
