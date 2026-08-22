@@ -1,0 +1,50 @@
+{
+  "method": "10 crypto, 1h Donchian + EMA regime filter, 70/30 train/OOS, MDD-first objective, exposure 0.5-1.0x, 0.05% fee each side, next-bar open",
+  "candidate_count": 240,
+  "best_oos_mdd_first": {
+    "assets": 10,
+    "profitable_assets": 8,
+    "median_return_pct": 12.47726492540523,
+    "median_cagr_pct": 4.4991687849275985,
+    "median_mdd_pct": -23.607494308111555,
+    "median_profit_factor": 1.2318171044568895,
+    "median_sharpe": 0.419013021532812,
+    "total_trades": 707,
+    "total_liquidations": 0,
+    "entry_n": 200,
+    "exit_n": 40,
+    "ema_n": 400,
+    "leverage": 0.5,
+    "part": "oos",
+    "train_rank": 17,
+    "train_return_pct": 323.00339229189865,
+    "train_mdd_pct": -38.211017396762166,
+    "robust_oos": true
+  },
+  "best_positive_oos_mdd_first": {
+    "assets": 10,
+    "profitable_assets": 8,
+    "median_return_pct": 12.47726492540523,
+    "median_cagr_pct": 4.4991687849275985,
+    "median_mdd_pct": -23.607494308111555,
+    "median_profit_factor": 1.2318171044568895,
+    "median_sharpe": 0.419013021532812,
+    "total_trades": 707,
+    "total_liquidations": 0,
+    "entry_n": 200,
+    "exit_n": 40,
+    "ema_n": 400,
+    "leverage": 0.5,
+    "part": "oos",
+    "train_rank": 17,
+    "train_return_pct": 323.00339229189865,
+    "train_mdd_pct": -38.211017396762166,
+    "robust_oos": true
+  },
+  "baseline_reference": {
+    "1h_donchian_80_40_1x_full_period_mdd_pct": -69.80494820638808,
+    "1h_donchian_160_80_1x_full_period_mdd_pct": -67.6816983202788,
+    "previous_walkforward_best_oos_return_pct": 2.266611702048798,
+    "previous_walkforward_best_oos_mdd_pct": -72.06757151891688
+  }
+}
