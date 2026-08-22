@@ -1,0 +1,76 @@
+{
+  "method": "same parameters across 10 crypto assets; 10-year/listing-to-2026-08-22; long-only; 0.05% fee each side; next-bar open execution",
+  "candidate_count_1x": 92,
+  "leverage_refinement_rows": 56,
+  "best_parameter_1x": {
+    "assets": 10,
+    "profitable_assets": 9,
+    "median_return_pct": 3107.83780903681,
+    "median_cagr_pct": 57.16612474331417,
+    "median_mdd_pct": -72.94768921293887,
+    "median_profit_factor": 1.236031202056961,
+    "median_sharpe": 0.9864907045504709,
+    "total_trades": 1454,
+    "total_liquidations": 0,
+    "family": "supertrend",
+    "timeframe": "4h",
+    "leverage": 1.0,
+    "params": "{\"mult\": 3.5, \"period\": 7}",
+    "robust_ok": true
+  },
+  "best_robust_with_leverage": {
+    "assets": 10,
+    "profitable_assets": 9,
+    "median_return_pct": 2907.8463996243227,
+    "median_cagr_pct": 76.22829840920193,
+    "median_mdd_pct": -81.19352320585955,
+    "median_profit_factor": 1.2027524839997354,
+    "median_sharpe": 1.0424497852097152,
+    "total_trades": 1561,
+    "total_liquidations": 0,
+    "family": "donchian",
+    "timeframe": "4h",
+    "leverage": 1.6,
+    "params": "{\"entry_n\": 40, \"exit_n\": 10}",
+    "robust_ok": true
+  },
+  "best_raw_return_with_leverage": {
+    "assets": 10,
+    "profitable_assets": 9,
+    "median_return_pct": 5697.445754438208,
+    "median_cagr_pct": 64.40601525631284,
+    "median_mdd_pct": -83.56932152887806,
+    "median_profit_factor": 1.1469058684514943,
+    "median_sharpe": 0.9986962549248701,
+    "total_trades": 1397,
+    "total_liquidations": 0,
+    "family": "donchian",
+    "timeframe": "1h",
+    "leverage": 1.6,
+    "params": "{\"entry_n\": 160, \"exit_n\": 80}",
+    "robust_ok": true
+  },
+  "baseline": {
+    "4h_donchian_20_10_1x": {
+      "median_return_pct": 1392.471358694845,
+      "median_cagr_pct": 41.598380688014004,
+      "median_mdd_pct": -74.49083579790053,
+      "median_profit_factor": 1.173017184969805,
+      "profitable_assets": 9
+    },
+    "4h_supertrend_10_3_1x": {
+      "median_return_pct": 1670.2056653364957,
+      "median_cagr_pct": 39.99532065836195,
+      "median_mdd_pct": -79.01973994925092,
+      "median_profit_factor": 1.1726222577716428,
+      "profitable_assets": 9
+    },
+    "1h_donchian_80_40_1x": {
+      "median_return_pct": 1196.5370076339755,
+      "median_cagr_pct": 34.54219481088175,
+      "median_mdd_pct": -69.80494820638808,
+      "median_profit_factor": 1.2383011711280028,
+      "profitable_assets": 9
+    }
+  }
+}
