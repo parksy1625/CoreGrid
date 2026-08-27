@@ -1,0 +1,40 @@
+name: Crypto Turbo v4.4 FineTune
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  PYTHONUNBUFFERED: "1"
+
+jobs:
+  turbo-v44:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Checkout tuning branch
+        uses: actions/checkout@v4
+        with:
+          ref: chatgpt-crypto-backtest-20260822
+          fetch-depth: 0
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check pandas numpy requests tabulate
+      - name: Run Turbo v4.4
+        run: python backtests/crypto_turbo_v44_finetune.py
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: crypto-turbo-v44-results
+          path: turbo_v44_output/
+          if-no-files-found: warn
+          retention-days: 7
