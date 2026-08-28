@@ -11,18 +11,18 @@
     "edge": 0.035,
     "max_total": 2.5,
     "windows": 14.0,
-    "median_return_pct": 98.43134278507591,
-    "best_return_pct": 19110.59392089837,
-    "worst_return_pct": -30.33036105933108,
-    "median_mdd_pct": -53.79519539267076,
-    "worst_mdd_pct": -67.40223551358757,
+    "median_return_pct": 98.43134278507662,
+    "best_return_pct": 19110.593920898373,
+    "worst_return_pct": -30.330361059330823,
+    "median_mdd_pct": -53.79519539267077,
+    "worst_mdd_pct": -67.4022355135875,
     "profitable_rate_pct": 71.42857142857143,
     "windows_10x_plus": 4.0,
     "windows_30x_plus": 3.0,
     "windows_100x_plus": 3.0,
     "windows_500x_plus": 0.0,
     "liquidations": 0.0,
-    "score": 75.05477272623719
+    "score": 75.05477272623793
   },
   "best_mdd_constrained": {
     "single": 1.0,
@@ -35,17 +35,17 @@
     "max_total": 2.5,
     "windows": 14.0,
     "median_return_pct": 136.86736554701818,
-    "best_return_pct": 8740.724010270851,
-    "worst_return_pct": -8.358429808202706,
-    "median_mdd_pct": -48.42740371174285,
-    "worst_mdd_pct": -62.75358708912968,
+    "best_return_pct": 8740.724010270853,
+    "worst_return_pct": -8.35842980820276,
+    "median_mdd_pct": -48.42740371174288,
+    "worst_mdd_pct": -62.753587089129724,
     "profitable_rate_pct": 78.57142857142857,
     "windows_10x_plus": 4.0,
     "windows_30x_plus": 3.0,
     "windows_100x_plus": 0.0,
     "windows_500x_plus": 0.0,
     "liquidations": 0.0,
-    "score": 120.18126737079774
+    "score": 120.1812673707977
   },
   "highest_window": {
     "single": 1.0,
@@ -58,8 +58,8 @@
     "max_total": 2.5,
     "start": "2020-06-19 00:00:00+00:00",
     "end": "2022-06-19 00:00:00+00:00",
-    "return_pct": 19110.59392089837,
-    "multiple": 192.1059392089837,
+    "return_pct": 19110.593920898373,
+    "multiple": 192.10593920898373,
     "mdd_pct": -56.05215660254754,
     "liquidated": 0
   }
