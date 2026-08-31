@@ -1,0 +1,1 @@
+Trigger Turbo v5.1 independent tail-overlay backtest. Target: median 2y return >= +200%, best 2y >= 3000x, zero liquidations.
