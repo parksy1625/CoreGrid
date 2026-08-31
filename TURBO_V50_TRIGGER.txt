@@ -1,3 +1,4 @@
 Turbo v5.0 rare super-bull search
 Target: best rolling 2y >= 3000x, median rolling 2y return >= +200%, zero liquidations.
 Base: V4.8 median-return anchor; rare super-bull only on breadth + long momentum + breakout confirmation.
+Run requested: 2026-08-31 21:08 KST
