@@ -1,0 +1,1 @@
+Trigger Turbo v5.2 isolated dual-sleeve backtest. Target: median rolling 2y return >= +200%, best rolling 2y >= 3000x, zero total liquidations. Core capital and tail capital are isolated.
