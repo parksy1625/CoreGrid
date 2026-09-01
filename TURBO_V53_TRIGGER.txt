@@ -1,0 +1,1 @@
+Trigger Turbo v5.3 dual-sleeve fine-tune. Target: median rolling 2y return >= +250%, best rolling 2y >= 3000x, zero total liquidations. Search centered on V5.2 winner with 15-30% isolated tail allocation and moderated 2.5-3.5x tail leverage.
