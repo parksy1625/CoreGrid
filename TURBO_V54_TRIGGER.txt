@@ -1,0 +1,2 @@
+Trigger Turbo v5.4 Median 300 backtest.
+Target: rolling 2y median return >= 300%, secondary best >= 3000x, zero total liquidations.
