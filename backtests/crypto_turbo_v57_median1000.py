@@ -33,15 +33,15 @@ def main():
         vals.append(r);rows.append({**cfg,"start":st,"end":en,**r})
       d=pd.DataFrame(vals)
       g={**cfg,"windows":len(d),"median_return_pct":d.return_pct.median(),"best_return_pct":d.return_pct.max(),"worst_return_pct":d.return_pct.min(),"median_mdd_pct":d.mdd_pct.median(),"worst_mdd_pct":d.mdd_pct.min(),"profitable_rate_pct":(d.return_pct>0).mean()*100,"liquidations":int(d.liquidated.sum()),"tail_liquidations":int(d.tail_liquidated.sum()),"windows_3000x_plus":int((d.multiple>=3000).sum())}
-      g["median1000_target"]=int(g["median_return_pct"]>=1000 and g["liquidations"]==0)
+      g["median1000_target"]=int(g["median_return_pct"]>=1000 and g["liquidations"]==0 and g["tail_liquidations"]==0)
       g["joint_target"]=int(g["median1000_target"] and g["best_return_pct"]>=299900)
       grids.append(g)
       if ci%18==0:print("progress",ci+1,"/",len(cfgs),flush=True)
-    gd=pd.DataFrame(grids).sort_values(["median1000_target","median_return_pct","tail_liquidations","median_mdd_pct"],ascending=[False,False,True,False])
+    gd=pd.DataFrame(grids).sort_values(["liquidations","tail_liquidations","median1000_target","median_return_pct","median_mdd_pct"],ascending=[True,True,False,False,False])
     rd=pd.DataFrame(rows)
     gd.to_csv(OUT/"grid.csv",index=False);rd.to_csv(OUT/"rolling_2y.csv",index=False);rd.sort_values("multiple",ascending=False).head(100).to_csv(OUT/"top_windows.csv",index=False)
-    safe=gd[(gd.median_return_pct>=1000)&(gd.liquidations==0)]
-    summary={"method":"V5.7 dual sleeve 1000% search; in-sample only","candidate_count":len(gd),"validation":"in-sample overlapping rolling windows; no slippage/funding or exchange liquidation model","median1000_count":len(safe),"joint_target_count":int(gd.joint_target.sum()),"best_overall":gd.iloc[0].to_dict(),"best_median1000":safe.iloc[0].to_dict() if len(safe) else None,"highest_window":rd.sort_values("multiple",ascending=False).iloc[0].to_dict()}
+    safe=gd[(gd.median_return_pct>=1000)&(gd.liquidations==0)&(gd.tail_liquidations==0)]
+    summary={"method":"V5.7 dual sleeve 1000% search; in-sample only","candidate_count":len(gd),"validation":"in-sample overlapping rolling windows; no slippage/funding or exchange liquidation model","median1000_count":len(safe),"zero_liquidation_configs":int(((gd.liquidations==0)&(gd.tail_liquidations==0)).sum()),"zero_total_liquidation_configs":int((gd.liquidations==0).sum()),"best_return_any":gd.sort_values("median_return_pct",ascending=False).iloc[0].to_dict(),"joint_target_count":int(gd.joint_target.sum()),"best_overall":gd.iloc[0].to_dict(),"best_median1000":safe.iloc[0].to_dict() if len(safe) else None,"highest_window":rd.sort_values("multiple",ascending=False).iloc[0].to_dict()}
     (OUT/"summary.json").write_text(json.dumps(summary,indent=2,default=str),encoding="utf-8")
     print(json.dumps(summary,default=str),flush=True)
 if __name__=="__main__":main()
