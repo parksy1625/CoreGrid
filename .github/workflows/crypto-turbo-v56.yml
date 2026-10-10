@@ -5,6 +5,7 @@ on:
       - 'backtests/crypto_turbo_v56_median700.py'
       - '.github/workflows/crypto-turbo-v56.yml'
       - 'TURBO_V56_TRIGGER.txt'
+      - 'TURBO_V56_RETRY_20261010.txt'
   workflow_dispatch:
 jobs:
   turbo-v56:
