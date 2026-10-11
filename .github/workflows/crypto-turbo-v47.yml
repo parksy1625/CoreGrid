@@ -1,0 +1,34 @@
+name: Crypto Turbo v4.7 Regime 3000x
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'TURBO_V47_TRIGGER.txt'
+      - '.github/workflows/crypto-turbo-v47.yml'
+      - 'backtests/crypto_turbo_v47_regime.py'
+jobs:
+  turbo-v47:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - name: Checkout tuning branch
+        uses: actions/checkout@v4
+        with:
+          ref: chatgpt-crypto-backtest-20260822
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install numpy pandas requests
+      - name: Fetch v4.7 script
+        run: |
+          curl -L "https://raw.githubusercontent.com/parksy1625/CoreGrid/turbo-v3-run-20260822/backtests/crypto_turbo_v47_regime.py" -o backtests/crypto_turbo_v47_regime.py
+      - name: Run Turbo v4.7
+        working-directory: backtests
+        run: python crypto_turbo_v47_regime.py
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: crypto-turbo-v47-results
+          path: backtests/turbo_v47_output/

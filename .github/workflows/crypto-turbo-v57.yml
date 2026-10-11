@@ -1,0 +1,31 @@
+name: Crypto Turbo v5.7 Median 1000
+on:
+  pull_request:
+    paths:
+      - 'backtests/crypto_turbo_v57_median1000.py'
+      - '.github/workflows/crypto-turbo-v57.yml'
+      - 'TURBO_V57_TRIGGER.txt'
+  workflow_dispatch:
+jobs:
+  turbo-v57:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: chatgpt-crypto-backtest-20260822
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install numpy pandas requests
+      - name: Fetch base engine
+        run: curl -L --fail https://raw.githubusercontent.com/parksy1625/CoreGrid/turbo-v3-run-20260822/backtests/crypto_turbo_v52_dualsleeve.py -o backtests/crypto_turbo_v52_dualsleeve.py
+      - name: Fetch V5.7
+        run: curl -L --fail https://raw.githubusercontent.com/parksy1625/CoreGrid/turbo-v3-run-20260822/backtests/crypto_turbo_v57_median1000.py -o backtests/crypto_turbo_v57_median1000.py
+      - name: Run V5.7
+        working-directory: backtests
+        run: python crypto_turbo_v57_median1000.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: crypto-turbo-v57-results
+          path: backtests/turbo_v57_output/

@@ -1,0 +1,4 @@
+Trigger Turbo v5.1 independent tail-overlay backtest.
+Target: median rolling 2y return >= +200%, best rolling 2y >= 3000x, zero liquidations.
+Architecture: exact V4.8 median core + additive winner-only tail overlay in rare broad momentum breakouts.
+Run: 2026-08-31T23:23+09:00

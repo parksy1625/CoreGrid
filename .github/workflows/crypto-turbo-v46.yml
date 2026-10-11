@@ -1,0 +1,34 @@
+name: Crypto Turbo v4.6 Dual Target
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'TURBO_V46_TRIGGER.txt'
+      - '.github/workflows/crypto-turbo-v46.yml'
+      - 'backtests/crypto_turbo_v46_dual.py'
+jobs:
+  turbo-v46:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Checkout tuning branch
+        uses: actions/checkout@v4
+        with:
+          ref: chatgpt-crypto-backtest-20260822
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install numpy pandas requests
+      - name: Fetch v4.6 script
+        run: |
+          curl -L "https://raw.githubusercontent.com/parksy1625/CoreGrid/turbo-v3-run-20260822/backtests/crypto_turbo_v46_dual.py" -o backtests/crypto_turbo_v46_dual.py
+      - name: Run Turbo v4.6
+        working-directory: backtests
+        run: python crypto_turbo_v46_dual.py
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: crypto-turbo-v46-results
+          path: backtests/turbo_v46_output/

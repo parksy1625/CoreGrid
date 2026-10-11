@@ -1,0 +1,1 @@
+trigger 2026-08-29 v4.7 regime switch target: best 2y >=3000x, median 2y >=150%, zero liquidations
