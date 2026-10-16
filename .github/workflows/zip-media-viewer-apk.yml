@@ -32,15 +32,15 @@ jobs:
           path: zip-media-viewer/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
       - name: Prepare release APK
-        run: cp app/build/outputs/apk/debug/app-debug.apk app/build/outputs/apk/debug/ZIPMediaViewer-v0.1-debug.apk
+        run: cp app/build/outputs/apk/debug/app-debug.apk app/build/outputs/apk/debug/ZIPMediaViewer-v0.2-debug.apk
       - name: Publish APK to GitHub Releases
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: zip-media-viewer-v0.1
-          name: ZIP Media Viewer v0.1
+          tag_name: zip-media-viewer-v0.2
+          name: ZIP Media Viewer v0.2
           body: |
             ZIP Media Viewer Android debug APK.
-            Download ZIPMediaViewer-v0.1-debug.apk directly below.
-          files: zip-media-viewer/app/build/outputs/apk/debug/ZIPMediaViewer-v0.1-debug.apk
+            Download ZIPMediaViewer-v0.2-debug.apk directly below.
+          files: zip-media-viewer/app/build/outputs/apk/debug/ZIPMediaViewer-v0.2-debug.apk
           fail_on_unmatched_files: true
           overwrite_files: true
