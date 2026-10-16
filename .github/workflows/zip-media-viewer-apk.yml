@@ -6,7 +6,7 @@ on:
       - '.github/workflows/zip-media-viewer-apk.yml'
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,19 +19,28 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
-      - name: Check Android SDK environment
-        run: |
-          echo "ANDROID_SDK_ROOT=${ANDROID_SDK_ROOT:-unset}"
-          ls -la "${ANDROID_SDK_ROOT:-/usr/local/lib/android/sdk}" || true
       - name: Install Gradle
         uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.9'
       - name: Build debug APK
         run: gradle --no-daemon :app:assembleDebug
-      - name: Upload APK
+      - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: ZIPMediaViewer-debug-apk
           path: zip-media-viewer/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
+      - name: Prepare release APK
+        run: cp app/build/outputs/apk/debug/app-debug.apk app/build/outputs/apk/debug/ZIPMediaViewer-v0.1-debug.apk
+      - name: Publish APK to GitHub Releases
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: zip-media-viewer-v0.1
+          name: ZIP Media Viewer v0.1
+          body: |
+            ZIP Media Viewer Android debug APK.
+            Download ZIPMediaViewer-v0.1-debug.apk directly below.
+          files: zip-media-viewer/app/build/outputs/apk/debug/ZIPMediaViewer-v0.1-debug.apk
+          fail_on_unmatched_files: true
+          overwrite_files: true
