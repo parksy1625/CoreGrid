@@ -23,6 +23,8 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.9'
+      - name: ZIP archive stress smoke test
+        run: python3 tools/stress_zip.py --entries 30000
       - name: Build debug APK
         run: gradle --no-daemon :app:assembleDebug
       - name: Upload APK artifact
@@ -32,14 +34,14 @@ jobs:
           path: zip-media-viewer/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
       - name: Prepare release APK
-        run: cp app/build/outputs/apk/debug/app-debug.apk app/build/outputs/apk/debug/ZIPMediaViewer-v0.2-debug.apk
+        run: cp app/build/outputs/apk/debug/app-debug.apk app/build/outputs/apk/debug/ZIPGallery-v1.0-debug.apk
       - name: Publish APK to GitHub Releases
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: zip-media-viewer-v0.2
-          name: ZIP Media Viewer v0.2
+          tag_name: zip-gallery-v1.0
+          name: ZIP Gallery v1.0
           body: |
-            ZIP Media Viewer Android debug APK.
+            ZIP Gallery v1.0 Android debug APK (testing build).
             Download ZIPMediaViewer-v0.2-debug.apk directly below.
           files: zip-media-viewer/app/build/outputs/apk/debug/ZIPMediaViewer-v0.2-debug.apk
           fail_on_unmatched_files: true
