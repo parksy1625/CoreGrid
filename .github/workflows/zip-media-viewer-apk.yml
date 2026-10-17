@@ -1,4 +1,4 @@
-name: Build ZIP Media Viewer APK
+name: Build ZIP Gallery APK
 on:
   push:
     paths:
@@ -34,7 +34,7 @@ jobs:
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ZIPMediaViewer-debug-apk
+          name: ZIPGallery-v1.0-debug-apk
           path: zip-media-viewer/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
       - name: Prepare release APK
@@ -46,7 +46,7 @@ jobs:
           name: ZIP Gallery v1.0
           body: |
             ZIP Gallery v1.0 Android debug APK (testing build).
-            Download ZIPMediaViewer-v0.2-debug.apk directly below.
-          files: zip-media-viewer/app/build/outputs/apk/debug/ZIPMediaViewer-v0.2-debug.apk
+            Download ZIPGallery-v1.0-debug.apk directly below.
+          files: zip-media-viewer/app/build/outputs/apk/debug/ZIPGallery-v1.0-debug.apk
           fail_on_unmatched_files: true
           overwrite_files: true
