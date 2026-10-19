@@ -1,0 +1,36 @@
+name: Crypto Turbo v5.2 Dual Sleeve
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'backtests/crypto_turbo_v52_dualsleeve.py'
+      - '.github/workflows/crypto-turbo-v52.yml'
+      - 'TURBO_V52_TRIGGER.txt'
+  workflow_dispatch:
+
+jobs:
+  turbo-v52:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - name: Checkout tuning branch
+        uses: actions/checkout@v4
+        with:
+          ref: chatgpt-crypto-backtest-20260822
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install numpy pandas requests
+      - name: Fetch v5.2 script
+        run: curl -L --fail https://raw.githubusercontent.com/parksy1625/CoreGrid/turbo-v3-run-20260822/backtests/crypto_turbo_v52_dualsleeve.py -o backtests/crypto_turbo_v52_dualsleeve.py
+      - name: Run Turbo v5.2
+        working-directory: backtests
+        run: python crypto_turbo_v52_dualsleeve.py
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: crypto-turbo-v52-results
+          path: backtests/turbo_v52_output/
